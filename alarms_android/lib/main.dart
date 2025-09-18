@@ -1,9 +1,9 @@
 import 'package:alarms_android/screens/confirm_alarm.dart';
 import 'package:alarms_android/screens/create_alarm.dart';
-import 'package:alarms_android/themes.dart';
 import 'package:alarms_android/screens/alarm_list.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:design_system/design_system.dart';
 
 void main() {
   runApp(const AlarmsApp());

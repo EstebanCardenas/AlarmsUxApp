@@ -2,8 +2,8 @@ import 'package:alarms_android/components/day_badge.dart';
 import 'package:alarms_android/components/hour_pill.dart';
 import 'package:alarms_android/models/alarm.dart';
 import 'package:alarms_android/models/days.dart';
-import 'package:alarms_android/utils.dart';
 import 'package:flutter/material.dart';
+import 'package:design_system/design_system.dart';
 
 class AlarmListItem extends StatefulWidget {
   final Alarm alarm;

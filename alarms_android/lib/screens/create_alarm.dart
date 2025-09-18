@@ -1,12 +1,11 @@
 import 'package:alarms_android/components/alarms_app_bar.dart';
-import 'package:alarms_android/components/button.dart';
 import 'package:alarms_android/components/day_button.dart';
 import 'package:alarms_android/data.dart';
 import 'package:alarms_android/models/days.dart';
 import 'package:alarms_android/screens/confirm_alarm.dart';
-import 'package:alarms_android/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:design_system/design_system.dart';
 
 class CreateAlarmPage extends StatefulWidget {
   static const name = "create-alarm";

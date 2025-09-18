@@ -1,9 +1,8 @@
 import 'package:alarms_android/components/alarms_app_bar.dart';
-import 'package:alarms_android/components/button.dart';
+import 'package:design_system/design_system.dart';
 import 'package:alarms_android/components/day_button.dart';
 import 'package:alarms_android/models/days.dart';
 import 'package:alarms_android/screens/alarm_list.dart';
-import 'package:alarms_android/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -23,9 +22,9 @@ class _ConfirmAlarmPageState extends State<ConfirmAlarmPage> {
 
   @override
   void initState() {
+    super.initState();
     hourController.text = "6:30 PM";
     categoryController.text = "Facturas";
-    super.initState();
   }
 
   @override

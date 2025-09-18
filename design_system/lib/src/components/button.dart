@@ -1,4 +1,4 @@
-import 'package:alarms_android/utils.dart';
+import 'package:design_system/src/utils.dart';
 import 'package:flutter/material.dart';
 
 class Button extends StatelessWidget {
