@@ -1,0 +1,34 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "alarms_android",
+            "cwd": "alarms_android",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "alarms_android (release mode)",
+            "cwd": "alarms_android",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "alarms_web",
+            "cwd": "alarms_web",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "alarms_web (release mode)",
+            "cwd": "alarms_web",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+    ]
+}

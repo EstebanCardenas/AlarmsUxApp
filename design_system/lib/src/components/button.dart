@@ -5,12 +5,14 @@ class Button extends StatelessWidget {
   final bool filled;
   final VoidCallback onTap;
   final String label;
+  final TextStyle? labelStyle;
 
   const Button({
     super.key,
     required this.onTap,
     required this.label,
     this.filled = false,
+    this.labelStyle,
   });
 
   @override
@@ -32,7 +34,7 @@ class Button extends StatelessWidget {
           child: Center(
             child: Text(
               label,
-              style: textTheme.titleMedium?.copyWith(
+              style: (labelStyle ?? textTheme.titleMedium)?.copyWith(
                 color: colorScheme.onSecondaryContainer,
               ),
             ),
