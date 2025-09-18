@@ -7,6 +7,9 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class AlarmListPage extends StatelessWidget {
+  static const name = "alarm-list";
+  static const route = "/$name";
+
   const AlarmListPage({super.key});
 
   @override
@@ -25,7 +28,7 @@ class AlarmListPage extends StatelessWidget {
           ),
           IconButton(
             onPressed: () {
-              context.go(CreateAlarmPage.route);
+              context.goNamed(CreateAlarmPage.name);
             },
             icon: Icon(Icons.add_circle_outline, color: colorScheme.onSurface),
           ),
