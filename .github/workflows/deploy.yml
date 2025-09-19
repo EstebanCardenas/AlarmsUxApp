@@ -1,0 +1,41 @@
+name: Flutter Web Deploy
+
+# This workflow is triggered on pushes to the main branch.
+on:
+  push:
+    branches:
+      - main
+  # Allows you to run this workflow manually from the Actions tab.
+  workflow_dispatch:
+
+jobs:
+  build_and_deploy:
+    # Runs on the latest version of Ubuntu.
+    runs-on: ubuntu-latest
+    
+    steps:
+      # 1. Checkout the repository content.
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      # 2. Set up Flutter with a specified version.
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable' # Use 'stable' channel
+      
+      # 3. Get dependencies.
+      - name: Get Flutter dependencies
+        run: flutter pub get
+
+      # 5. Build the web application. The output is in the 'build/web' directory.
+      - name: Build Flutter web app
+        run: flutter build web --release --base-href /AlarmsUxApp/
+
+      # 6. Deploy to GitHub Pages.
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GH_PAT }}
+          publish_dir: ./build/web
+          keep_files: false # This will clear the gh-pages branch before deploying
