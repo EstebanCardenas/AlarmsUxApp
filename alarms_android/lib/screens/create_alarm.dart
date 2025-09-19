@@ -67,8 +67,12 @@ class _CreateAlarmPageState extends State<CreateAlarmPage> {
                   String minuteStr = time.minute < 10
                       ? "0${time.minute}"
                       : "${time.minute}";
+                  String hourStr = time.hour > 12
+                      ? "${time.hour - 12}"
+                      : "${time.hour}";
+                  if (time.hour == 0) hourStr = '12';
                   hourController.text =
-                      "${time.hour % 12}:$minuteStr ${time.period.name.toUpperCase()}";
+                      "$hourStr:$minuteStr ${time.period.name.toUpperCase()}";
                 }
               },
               child: AbsorbPointer(
