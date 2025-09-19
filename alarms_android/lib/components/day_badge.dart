@@ -1,6 +1,6 @@
 import 'package:alarms_android/models/days.dart';
-import 'package:alarms_android/utils.dart';
 import 'package:flutter/material.dart';
+import 'package:design_system/design_system.dart';
 
 class DayBadge extends StatelessWidget {
   final Day day;

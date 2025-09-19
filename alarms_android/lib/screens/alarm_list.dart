@@ -2,11 +2,14 @@ import 'package:alarms_android/components/alarm_list_item.dart';
 import 'package:alarms_android/components/alarms_app_bar.dart';
 import 'package:alarms_android/data.dart';
 import 'package:alarms_android/screens/create_alarm.dart';
-import 'package:alarms_android/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:design_system/design_system.dart';
 
 class AlarmListPage extends StatelessWidget {
+  static const name = "alarm-list";
+  static const route = "/$name";
+
   const AlarmListPage({super.key});
 
   @override
@@ -25,7 +28,7 @@ class AlarmListPage extends StatelessWidget {
           ),
           IconButton(
             onPressed: () {
-              context.go(CreateAlarmPage.route);
+              context.goNamed(CreateAlarmPage.name);
             },
             icon: Icon(Icons.add_circle_outline, color: colorScheme.onSurface),
           ),

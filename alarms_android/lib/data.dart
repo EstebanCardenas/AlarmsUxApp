@@ -73,3 +73,9 @@ final alarmsByCategory = <String, List<Alarm>>{
     ),
   ],
 }.entries.toList();
+
+final categories = <String>[
+  "Las Más Frecuentes",
+  "Eventos Familiares",
+  "Pagos",
+];
