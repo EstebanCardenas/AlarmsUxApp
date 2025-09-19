@@ -22,11 +22,15 @@ class AlarmsAppBar extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 18),
       child: Row(
         children: [
-          if (onBackBtnPress != null)
+          if (onBackBtnPress != null) ...[
             IconButton(
+              padding: EdgeInsets.zero,
+              constraints: BoxConstraints(),
               onPressed: onBackBtnPress,
               icon: Icon(Icons.arrow_back, color: colorScheme.onSurface),
             ),
+            const SizedBox(width: 8),
+          ],
           RobotoText(
             text: title,
             style: textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w500),

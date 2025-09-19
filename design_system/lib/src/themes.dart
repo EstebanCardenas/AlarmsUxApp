@@ -38,6 +38,9 @@ ColorScheme lightColorScheme = const ColorScheme(
   inverseSurface: AppColors.materialThemeSysLightInverseSurface,
   onInverseSurface: AppColors.materialThemeSysLightInverseOnSurface,
   inversePrimary: AppColors.materialThemeSysLightInversePrimary,
+  onPrimaryFixed: AppColors.materialThemeSysLightOnPrimaryFixed,
+  tertiaryFixedDim: AppColors.materialThemeSysLightTertiaryFixedDim,
+  onTertiaryFixedVariant: AppColors.materialThemeSysLightOnTertiaryFixedVariant,
 );
 
 ThemeData lightTheme = ThemeData(colorScheme: lightColorScheme);

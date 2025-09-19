@@ -1,5 +1,6 @@
 import 'package:alarms_web/components/nav_rail.dart';
 import 'package:alarms_web/screens/categories.dart';
+import 'package:alarms_web/screens/create_category.dart';
 import 'package:alarms_web/screens/dashboard.dart';
 import 'package:alarms_web/screens/settings.dart';
 import 'package:flutter/material.dart';
@@ -10,11 +11,17 @@ void main() {
   runApp(const AlarmsApp());
 }
 
-final routeToIndex = {
-  DashboardPage.route: 0,
-  CategoriesPage.route: 1,
-  SettingsPage.route: 2,
-};
+int getSelectedIndexFromPath(String path) {
+  if (path.startsWith(DashboardPage.route)) {
+    return 0;
+  } else if (path.startsWith(CategoriesPage.route)) {
+    return 1;
+  } else if (path.startsWith(SettingsPage.route)) {
+    return 2;
+  }
+
+  return 0;
+}
 
 void destinationChangedHandler(BuildContext context, int idx) {
   switch (idx) {
@@ -30,6 +37,20 @@ void destinationChangedHandler(BuildContext context, int idx) {
   }
 }
 
+CustomTransitionPage getFadeTransitionPage({
+  required Widget child,
+  required LocalKey key,
+}) => CustomTransitionPage(
+  key: key,
+  child: child,
+  transitionsBuilder: (context, animation, secondaryAnimation, child) {
+    return FadeTransition(
+      opacity: CurveTween(curve: Curves.easeOutSine).animate(animation),
+      child: child,
+    );
+  },
+);
+
 final router = GoRouter(
   initialLocation: DashboardPage.route,
   routes: [
@@ -43,7 +64,7 @@ final router = GoRouter(
             child: Row(
               children: [
                 AlarmsNavigationRail(
-                  selectedIndex: routeToIndex[state.fullPath] ?? 0,
+                  selectedIndex: getSelectedIndexFromPath(state.fullPath ?? ''),
                   onDestinationChanged: (idx) =>
                       destinationChangedHandler(context, idx),
                 ),
@@ -70,17 +91,32 @@ final router = GoRouter(
         GoRoute(
           path: DashboardPage.route,
           name: DashboardPage.name,
-          builder: (context, state) => DashboardPage(),
+          pageBuilder: (context, state) =>
+              getFadeTransitionPage(child: DashboardPage(), key: state.pageKey),
         ),
         GoRoute(
           path: CategoriesPage.route,
           name: CategoriesPage.name,
-          builder: (context, state) => CategoriesPage(),
+          pageBuilder: (context, state) => getFadeTransitionPage(
+            child: CategoriesPage(),
+            key: state.pageKey,
+          ),
+          routes: [
+            GoRoute(
+              path: CreateCategoryPage.route,
+              name: CreateCategoryPage.name,
+              pageBuilder: (context, state) => getFadeTransitionPage(
+                child: CreateCategoryPage(),
+                key: state.pageKey,
+              ),
+            ),
+          ],
         ),
         GoRoute(
           path: SettingsPage.route,
           name: SettingsPage.name,
-          builder: (context, state) => SettingsPage(),
+          pageBuilder: (context, state) =>
+              getFadeTransitionPage(child: SettingsPage(), key: state.pageKey),
         ),
       ],
     ),

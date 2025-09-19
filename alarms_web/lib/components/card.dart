@@ -5,8 +5,15 @@ class AlarmsCard extends StatelessWidget {
   final Widget content;
   final double? width;
   final double? height;
+  final EdgeInsetsGeometry? padding;
 
-  const AlarmsCard({super.key, required this.content, this.width, this.height});
+  const AlarmsCard({
+    super.key,
+    required this.content,
+    this.width,
+    this.height,
+    this.padding,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +28,10 @@ class AlarmsCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(12),
           border: Border.all(width: 1, color: colorScheme.onPrimaryContainer),
         ),
-        child: content,
+        child: Padding(
+          padding: padding ?? EdgeInsets.zero,
+          child: content,
+        ),
       ),
     );
   }
