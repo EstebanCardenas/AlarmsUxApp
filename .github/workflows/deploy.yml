@@ -22,20 +22,21 @@ jobs:
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
-          channel: 'stable' # Use 'stable' channel
+          channel: 'stable'
+          flutter-version: 3.35.3
       
       # 3. Get dependencies.
       - name: Get Flutter dependencies
-        run: flutter pub get
+        run: cd alarms_web && flutter pub get
 
       # 5. Build the web application. The output is in the 'build/web' directory.
       - name: Build Flutter web app
-        run: flutter build web --release --base-href /AlarmsUxApp/
+        run: cd alarms_web && flutter build web --release --base-href /AlarmsUxApp/
 
       # 6. Deploy to GitHub Pages.
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GH_PAT }}
-          publish_dir: ./build/web
+          publish_dir: ./alarms_web/build/web
           keep_files: false # This will clear the gh-pages branch before deploying
