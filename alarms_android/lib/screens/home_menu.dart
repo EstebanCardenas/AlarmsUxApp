@@ -30,11 +30,6 @@ class HomeMenuPage extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             ElevatedButton(
-              onPressed: () => context.goNamed(HistoryPage.name),
-              child: const Text('Historial'),
-            ),
-            const SizedBox(height: 20),
-            ElevatedButton(
               onPressed: () => context.goNamed(NotificationActionPage.name),
               child: const Text('Simular notificación'),
             ),

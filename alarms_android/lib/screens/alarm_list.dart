@@ -2,6 +2,7 @@ import 'package:alarms_android/components/alarm_list_item.dart';
 import 'package:alarms_android/components/alarms_app_bar.dart';
 import 'package:alarms_android/data.dart';
 import 'package:alarms_android/screens/create_alarm.dart';
+import 'package:alarms_android/screens/history.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:design_system/design_system.dart';
@@ -23,7 +24,9 @@ class AlarmListPage extends StatelessWidget {
         textTheme: textTheme,
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              context.goNamed(HistoryPage.name);
+            },
             icon: Icon(Icons.schedule, color: colorScheme.onSurface),
           ),
           IconButton(

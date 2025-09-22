@@ -22,10 +22,16 @@ final router = GoRouter(
       builder: (context, state) => HomeMenuPage(),
       routes: [
         GoRoute(
-          path: "/alarms",
+          path: AlarmListPage.route,
           name: AlarmListPage.name,
           builder: (context, state) => AlarmListPage(),
           routes: [
+            GoRoute(
+              path: "/history",
+              name: HistoryPage.name,
+              builder: (context, state) => HistoryPage(),
+              routes: []
+            ),
             GoRoute(
               path: CreateAlarmPage.route,
               name: CreateAlarmPage.name,
@@ -39,12 +45,6 @@ final router = GoRouter(
               ],
             ),
           ],
-        ),
-        GoRoute(
-          path: "/history",
-          name: HistoryPage.name,
-          builder: (context, state) => HistoryPage(),
-          routes: []
         ),
         GoRoute(
           path: "/notification_action",
