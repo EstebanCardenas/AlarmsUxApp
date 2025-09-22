@@ -1,7 +1,9 @@
 import 'package:alarms_web/components/nav_rail.dart';
+import 'package:alarms_web/screens/alarms.dart';
 import 'package:alarms_web/screens/categories.dart';
 import 'package:alarms_web/screens/create_category.dart';
 import 'package:alarms_web/screens/dashboard.dart';
+import 'package:alarms_web/screens/reports.dart';
 import 'package:alarms_web/screens/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -14,10 +16,22 @@ void main() {
 int getSelectedIndexFromPath(String path) {
   if (path.startsWith(DashboardPage.route)) {
     return 0;
-  } else if (path.startsWith(CategoriesPage.route)) {
+  } 
+  
+  if (path.startsWith(AlarmsPage.route)) {
     return 1;
-  } else if (path.startsWith(SettingsPage.route)) {
+  } 
+  
+  if (path.startsWith(ReportsPage.route)) {
     return 2;
+  }
+
+  if (path.startsWith(CategoriesPage.route)) {
+    return 3;
+  }
+
+  if (path.startsWith(SettingsPage.route)) {
+    return 4;
   }
 
   return 0;
@@ -29,9 +43,15 @@ void destinationChangedHandler(BuildContext context, int idx) {
       context.goNamed(DashboardPage.name);
       break;
     case 1:
-      context.goNamed(CategoriesPage.name);
+      context.goNamed(AlarmsPage.name);
       break;
     case 2:
+      context.goNamed(ReportsPage.name);
+      break;
+    case 3:
+      context.goNamed(CategoriesPage.name);
+      break;
+    case 4:
       context.goNamed(SettingsPage.name);
       break;
   }
@@ -111,6 +131,18 @@ final router = GoRouter(
               ),
             ),
           ],
+        ),
+        GoRoute(
+          path: AlarmsPage.route,
+          name: AlarmsPage.name,
+          pageBuilder: (context, state) =>
+              getFadeTransitionPage(child: AlarmsPage(), key: state.pageKey),
+        ),
+        GoRoute(
+          path: ReportsPage.route,
+          name: ReportsPage.name,
+          pageBuilder: (context, state) =>
+              getFadeTransitionPage(child: ReportsPage(), key: state.pageKey),
         ),
         GoRoute(
           path: SettingsPage.route,

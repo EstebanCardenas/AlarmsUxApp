@@ -42,12 +42,20 @@ class AlarmsNavigationRail extends StatelessWidget {
           label: RobotoText(text: "Dashboard", style: getTextStyle(selectedIndex == 0)),
         ),
         NavigationRailDestination(
+          icon: Icon(Icons.alarm_outlined),
+          label: RobotoText(text: "Alarmas", style: getTextStyle(selectedIndex == 1)),
+        ),
+        NavigationRailDestination(
+          icon: Icon(Icons.tab_outlined),
+          label: RobotoText(text: "Reportes", style: getTextStyle(selectedIndex == 2)),
+        ),
+        NavigationRailDestination(
           icon: Icon(Icons.groups_outlined),
-          label: RobotoText(text: "Categorías", style: getTextStyle(selectedIndex == 1)),
+          label: RobotoText(text: "Categorías", style: getTextStyle(selectedIndex == 3)),
         ),
         NavigationRailDestination(
           icon: Icon(Icons.settings_outlined),
-          label: RobotoText(text: "Ajustes", style: getTextStyle(selectedIndex == 2)),
+          label: RobotoText(text: "Ajustes", style: getTextStyle(selectedIndex == 4)),
         ),
       ],
       selectedIndex: selectedIndex,
