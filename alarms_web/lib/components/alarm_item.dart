@@ -11,7 +11,6 @@ class AlarmItem extends StatelessWidget {
     required this.hour,
     required this.minute,
     required this.meridiemType,
-
   });
 
   String get formattedHour {
@@ -66,7 +65,39 @@ class AlarmItem extends StatelessWidget {
                 ),
                 Row(
                   children: [
-                    Icon(Icons.delete, size: 16, color: colorScheme.onSurfaceVariant),
+                    GestureDetector(
+                      onTap: () => {
+                        showDialog(
+                          context: context,
+                          builder: (_) => AlertDialog(
+                            title: const Text("Confirmar acción"),
+                            content: const Text(
+                              "Esta acción no se puede deshacer. ¿Desea continuar?",
+                            ),
+                            actions: [
+                              TextButton(
+                                onPressed: () => {
+                                  // Navigator.pop(context)
+                                },
+                                child: const Text("Cancelar"),
+                              ),
+                              ElevatedButton(
+                                onPressed: () {
+                                  // Acción de confirmación
+                                  //Navigator.pop(context);
+                                },
+                                child: const Text("Sí, continuar"),
+                              ),
+                            ],
+                          ),
+                        )
+                      },
+                      child: Icon(
+                        Icons.delete,
+                        size: 16,
+                        color: colorScheme.onSurfaceVariant,
+                      ),
+                    ),
                     SizedBox(width: 4),
                     Text(
                       "Eliminar",
@@ -75,7 +106,7 @@ class AlarmItem extends StatelessWidget {
                       ),
                     ),
                   ],
-                ),                
+                ),
               ],
             ),
           ],

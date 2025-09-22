@@ -49,7 +49,39 @@ class CategoryItem extends StatelessWidget {
                 ),
                 Row(
                   children: [
-                    Icon(Icons.delete, size: 16, color: colorScheme.onSurfaceVariant),
+                    GestureDetector(
+                      onTap: () => {
+                        showDialog(
+                          context: context,
+                          builder: (_) => AlertDialog(
+                            title: const Text("Confirmar acción"),
+                            content: const Text(
+                              "Esta acción no se puede deshacer. ¿Desea continuar?",
+                            ),
+                            actions: [
+                              TextButton(
+                                onPressed: () => {
+                                  // Navigator.pop(context)
+                                },
+                                child: const Text("Cancelar"),
+                              ),
+                              ElevatedButton(
+                                onPressed: () {
+                                  // Acción de confirmación
+                                  //Navigator.pop(context);
+                                },
+                                child: const Text("Sí, continuar"),
+                              ),
+                            ],
+                          ),
+                        )
+                      },
+                      child: Icon(
+                        Icons.delete,
+                        size: 16,
+                        color: colorScheme.onSurfaceVariant,
+                      ),
+                    ),
                     SizedBox(width: 4),
                     Text(
                       "Eliminar",
@@ -65,32 +97,5 @@ class CategoryItem extends StatelessWidget {
         ),
       ],
     );
-
-    /*
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        DecoratedBox(
-          decoration: BoxDecoration(
-            color: colorScheme.primaryContainer,
-            borderRadius: BorderRadius.all(Radius.circular(6)),
-          ),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 18),
-            child: Text(
-              formattedHour,
-              style: textTheme.bodyMedium?.copyWith(color: colorScheme.onPrimaryContainer),
-            ),
-          ),
-        ),
-        SizedBox(height: 8),
-        Text(
-          "Lun, Mar, Mié",
-          style: textTheme.bodySmall?.copyWith(color: colorScheme.onSurfaceVariant),
-        ),
-      ],
-    );
-
-    */
   }
 }

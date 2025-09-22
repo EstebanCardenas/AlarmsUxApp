@@ -22,13 +22,6 @@ class AlarmsPage extends StatelessWidget {
         children: [
           AlarmsAppBar(
             title: "Alarmas",
-            action: IconButton(
-              padding: EdgeInsets.zero,
-              constraints: const BoxConstraints(),
-              onPressed: () => context.goNamed(CreateCategoryPage.name),
-              icon: Icon(Icons.add_circle_outline,
-                  color: colorScheme.onSurfaceVariant),
-            ),
           ),
           Expanded(
             child: Padding(
