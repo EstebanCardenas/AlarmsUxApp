@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:design_system/design_system.dart';
 
-class AlarmItem extends StatelessWidget {
+class CategoryItem extends StatelessWidget {
   final int hour;
   final int minute;
   final String meridiemType;
+  final String title;
 
-  const AlarmItem({
+  const CategoryItem({
     super.key,
     required this.hour,
     required this.minute,
     required this.meridiemType,
-
+    required this.title,
   });
 
   String get formattedHour {
@@ -29,30 +30,12 @@ class AlarmItem extends StatelessWidget {
       children: [
         Row(
           children: [
-            DecoratedBox(
-              decoration: BoxDecoration(
-                color: colorScheme.primaryContainer,
-                borderRadius: BorderRadius.all(Radius.circular(6)),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 15,
-                  vertical: 18,
-                ),
-                child: Text(
-                  formattedHour,
-                  style: textTheme.bodyMedium?.copyWith(
-                    color: colorScheme.onPrimaryContainer,
-                  ),
-                ),
-              ),
-            ),
-            SizedBox(height: 8, width: 16),
+            SizedBox(height: 36),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Alarma 1",
+                  title,
                   style: textTheme.bodyLarge?.copyWith(
                     color: colorScheme.onSurfaceVariant,
                     fontWeight: FontWeight.w500,
