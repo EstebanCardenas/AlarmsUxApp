@@ -28,12 +28,11 @@ class NotificationActionPage extends StatelessWidget {
             // Título de sección
             Text(
               "Acciones",
-              style: textTheme.headlineSmall?.copyWith(
-                color: colorScheme.onBackground,
+              style: textTheme.titleLarge?.copyWith(
+                color: colorScheme.onSurface,
               ),
             ),
-            const SizedBox(height: 12),
-            // Botones alineados a la izquierda y con wrap si no caben
+            const SizedBox(height: 16),
             Wrap(
               spacing: 4,
               runSpacing: 12,

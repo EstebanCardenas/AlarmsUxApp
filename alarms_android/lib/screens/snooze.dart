@@ -18,17 +18,33 @@ class SnoozePage extends StatelessWidget {
         title: "Postponer",
         colorScheme: colorScheme,
         textTheme: textTheme),
-      body: Center(
+      body: Padding(
+        padding: const EdgeInsets.all(24),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            buildSnoozeOption("1 minuto", colorScheme.primary, colorScheme, textTheme),
-            const SizedBox(height: 10),
-            buildSnoozeOption("5 minutos", colorScheme.primary, colorScheme, textTheme),
-            const SizedBox(height: 10),
-            buildSnoozeOption("10 minutos", colorScheme.primary, colorScheme, textTheme),
-            const SizedBox(height: 10),
-            buildSnoozeOption("30 minutos", colorScheme.primary, colorScheme, textTheme),
+            Text(
+              "Acciones",
+              style: textTheme.titleLarge?.copyWith(
+                color: colorScheme.onSurface,
+              ),
+            ),
+            Center(
+              child: Column(
+                children: [
+                  const SizedBox(height: 96),
+                  buildSnoozeOption("1 minuto", colorScheme, textTheme),
+                  const SizedBox(height: 54),
+                  buildSnoozeOption("5 minutos", colorScheme, textTheme),
+                  const SizedBox(height: 54),
+                  buildSnoozeOption("10 minutos", colorScheme, textTheme),
+                  const SizedBox(height: 54),
+                  buildSnoozeOption("30 minutos", colorScheme, textTheme),
+                ],
+              )
+            ),
+            
           ],
         ),
       ),
@@ -38,23 +54,22 @@ class SnoozePage extends StatelessWidget {
 
 Widget buildSnoozeOption(
   String label,
-  Color iconColor,
   ColorScheme colorScheme,
   TextTheme textTheme,
 ) {
   return ElevatedButton.icon(
     onPressed: () {},
-    icon: Icon(Icons.star, color: iconColor),
+    icon: Icon(Icons.stars, color: colorScheme.onSecondaryContainer),
     label: Text(
       label,
-      style: textTheme.labelLarge?.copyWith(
+      style: textTheme.titleMedium?.copyWith(
         color: colorScheme.onSurface,
       ),
     ),
     style: ElevatedButton.styleFrom(
       backgroundColor: colorScheme.secondaryContainer,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12), // <-- esquinas redondeadas
+        borderRadius: BorderRadius.circular(12),
       ),
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
       elevation: 4, // sombra ligera
