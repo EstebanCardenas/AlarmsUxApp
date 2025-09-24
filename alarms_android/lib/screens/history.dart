@@ -18,9 +18,6 @@ class HistoryPage extends StatelessWidget {
         title: "Historial",
         colorScheme: colorScheme,
         textTheme: textTheme,
-        actions: [
-          
-        ],
       ),
       backgroundColor: Colors.white,
       body: ListView.builder(
