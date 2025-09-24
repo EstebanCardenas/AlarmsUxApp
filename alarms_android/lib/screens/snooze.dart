@@ -15,7 +15,7 @@ class SnoozePage extends StatelessWidget {
     
     return Scaffold(
       appBar: AlarmsAppBar(
-        title: "Postponer",
+        title: "Mi alarma",
         colorScheme: colorScheme,
         textTheme: textTheme),
       body: Padding(
@@ -25,7 +25,7 @@ class SnoozePage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "Acciones",
+              "Postponer",
               style: textTheme.titleLarge?.copyWith(
                 color: colorScheme.onSurface,
               ),
