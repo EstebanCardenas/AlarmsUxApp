@@ -10,7 +10,7 @@ final alarmsByCategory = <String, List<Alarm>>{
       label: "Mañana en 7h 30 min",
       days: {Day.L, Day.M, Day.X},
       isActivated: true,
-      timesSnoozed: 20,
+      timesSnoozed: 4,
     ),
     const Alarm(
       hour: 8,

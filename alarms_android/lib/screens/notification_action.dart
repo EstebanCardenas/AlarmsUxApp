@@ -21,7 +21,7 @@ class NotificationActionPage extends StatelessWidget {
         textTheme: textTheme,
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+        padding: const EdgeInsets.all(24),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -35,12 +35,12 @@ class NotificationActionPage extends StatelessWidget {
             const SizedBox(height: 12),
             // Botones alineados a la izquierda y con wrap si no caben
             Wrap(
-              spacing: 12,
+              spacing: 4,
               runSpacing: 12,
               children: [
                 ElevatedButton.icon(
                   onPressed: () => context.goNamed(SnoozePage.name),
-                  icon: Icon(Icons.star, size: 18, color: colorScheme.onPrimary),
+                  icon: Icon(Icons.stars, size: 18, color: colorScheme.onPrimary),
                   label: Text(
                     "Postponer",
                     style: textTheme.labelLarge?.copyWith(
@@ -60,7 +60,7 @@ class NotificationActionPage extends StatelessWidget {
                 ),
                 ElevatedButton.icon(
                   onPressed: () => context.goNamed(AlarmListPage.name),
-                  icon: Icon(Icons.star,
+                  icon: Icon(Icons.stars,
                       size: 18, color: colorScheme.onSecondaryContainer),
                   label: Text(
                     "Hecho",
@@ -72,7 +72,7 @@ class NotificationActionPage extends StatelessWidget {
                     backgroundColor: colorScheme.secondaryContainer,
                     elevation: 0,
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20),
+                      borderRadius: BorderRadius.circular(8),
                     ),
                     padding: const EdgeInsets.symmetric(
                       horizontal: 20,

@@ -44,14 +44,15 @@ class _HistoryListItemState extends State<HistoryListItem> {
             ),
             const SizedBox(width: 48),
             HistoryPill(times: widget.alarm.timesSnoozed),
-            const SizedBox(width: 8),
+            const SizedBox(width: 4),
             Expanded(
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("Reprogramada", style: textTheme.bodyMedium),
-                  const SizedBox(height: 4),
+                  Text(
+                    "Reprogramada", 
+                    style: textTheme.labelMedium?.copyWith(color: colorScheme.onSurface)),
                 ],
               ),
             ),

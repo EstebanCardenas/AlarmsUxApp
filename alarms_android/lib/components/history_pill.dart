@@ -20,10 +20,10 @@ class HistoryPill extends StatelessWidget {
         borderRadius: BorderRadius.all(Radius.circular(8)),
       ),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
         child: Text(
           "$times veces",
-          style: textTheme.bodyMedium?.copyWith(color: colorScheme.primary),
+          style: textTheme.bodySmall?.copyWith(color: colorScheme.primary, fontWeight: FontWeight.w600),
         ),
       ),
     );
