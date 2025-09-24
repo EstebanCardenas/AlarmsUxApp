@@ -1,8 +1,6 @@
-import 'package:alarms_android/components/day_badge.dart';
 import 'package:alarms_android/components/history_pill.dart';
 import 'package:alarms_android/components/hour_pill.dart';
 import 'package:alarms_android/models/alarm.dart';
-import 'package:alarms_android/models/days.dart';
 import 'package:flutter/material.dart';
 import 'package:design_system/design_system.dart';
 
@@ -16,12 +14,9 @@ class HistoryListItem extends StatefulWidget {
 }
 
 class _HistoryListItemState extends State<HistoryListItem> {
-  var switchToggled = false;
-
   @override
   void initState() {
     super.initState();
-    switchToggled = widget.alarm.isActivated;
   }
 
   @override
