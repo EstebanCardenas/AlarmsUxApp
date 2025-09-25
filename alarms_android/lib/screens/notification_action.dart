@@ -30,6 +30,7 @@ class NotificationActionPage extends StatelessWidget {
               "Acciones",
               style: textTheme.titleLarge?.copyWith(
                 color: colorScheme.onSurface,
+                fontWeight: FontWeight.w500,
               ),
             ),
             const SizedBox(height: 16),

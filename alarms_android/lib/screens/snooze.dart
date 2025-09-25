@@ -1,8 +1,6 @@
 import 'package:alarms_android/components/alarms_app_bar.dart';
-import 'package:alarms_android/screens/history.dart';
 import 'package:design_system/design_system.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 class SnoozePage extends StatelessWidget {
   static const String name = 'SnoozePage';
@@ -12,12 +10,13 @@ class SnoozePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final (colorScheme, textTheme) = getColorSchemeAndTextTheme(context);
-    
+
     return Scaffold(
       appBar: AlarmsAppBar(
         title: "Mi alarma",
         colorScheme: colorScheme,
-        textTheme: textTheme),
+        textTheme: textTheme,
+      ),
       body: Padding(
         padding: const EdgeInsets.all(24),
         child: Column(
@@ -28,6 +27,7 @@ class SnoozePage extends StatelessWidget {
               "Postponer",
               style: textTheme.titleLarge?.copyWith(
                 color: colorScheme.onSurface,
+                fontWeight: FontWeight.w500,
               ),
             ),
             Center(
@@ -42,9 +42,8 @@ class SnoozePage extends StatelessWidget {
                   const SizedBox(height: 54),
                   buildSnoozeOption("30 minutos", colorScheme, textTheme),
                 ],
-              )
+              ),
             ),
-            
           ],
         ),
       ),
@@ -62,15 +61,11 @@ Widget buildSnoozeOption(
     icon: Icon(Icons.stars, color: colorScheme.onSecondaryContainer),
     label: Text(
       label,
-      style: textTheme.titleMedium?.copyWith(
-        color: colorScheme.onSurface,
-      ),
+      style: textTheme.titleMedium?.copyWith(color: colorScheme.onSurface),
     ),
     style: ElevatedButton.styleFrom(
       backgroundColor: colorScheme.secondaryContainer,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12),
-      ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
       elevation: 4, // sombra ligera
     ),

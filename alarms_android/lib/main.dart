@@ -10,11 +10,21 @@ import 'package:design_system/design_system.dart';
 
 import 'screens/notification_action.dart';
 
+class MyObserver extends NavigatorObserver {
+  @override
+  void didPush(Route route, Route? previousRoute) {
+    super.didPush(route, previousRoute);
+    print("Pusehd: $route");
+  }
+}
+
 void main() {
   runApp(const AlarmsApp());
 }
 
 final router = GoRouter(
+  initialLocation: "/",
+  // observers: [MyObserver()],
   routes: [
     GoRoute(
       path: "/",
@@ -30,7 +40,7 @@ final router = GoRouter(
               path: "/history",
               name: HistoryPage.name,
               builder: (context, state) => HistoryPage(),
-              routes: []
+              routes: [],
             ),
             GoRoute(
               path: CreateAlarmPage.route,
@@ -55,11 +65,11 @@ final router = GoRouter(
               path: "/snooze",
               name: SnoozePage.name,
               builder: (context, state) => SnoozePage(),
-              routes: []
-            )
-          ]
-        )
-      ]
+              routes: [],
+            ),
+          ],
+        ),
+      ],
     ),
   ],
 );
