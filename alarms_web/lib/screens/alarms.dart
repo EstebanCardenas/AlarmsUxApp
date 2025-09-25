@@ -21,11 +21,11 @@ class AlarmsPage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           AlarmsAppBar(
-            title: "Alarmas",
+            title: "Mis Alarmas",
           ),
           Expanded(
             child: Padding(
-              padding: const EdgeInsets.all(24),
+              padding: const EdgeInsets.symmetric(horizontal: 48, vertical: 8),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -36,18 +36,16 @@ class AlarmsPage extends StatelessWidget {
                       children: [
                         Text(
                           "Las más frecuentes",
-                          style: textTheme.titleMedium?.copyWith(
-                            fontWeight: FontWeight.w700,
+                          style: textTheme.headlineSmall?.copyWith(
+                            color: colorScheme.onSurface,
                           ),
                         ),
+                        const SizedBox(height: 8),
+                        AlarmItem(hour: 6, minute: 0, meridiemType: "am"),
                         const SizedBox(height: 16),
-                        AlarmItem(hour: 6, minute: 0, meridiemType: "AM"),
-                        const SizedBox(height: 8),
-                        AlarmItem(hour: 7, minute: 0, meridiemType: "AM"),
-                        const SizedBox(height: 8),
-                        AlarmItem(hour: 8, minute: 0, meridiemType: "AM"),
-                        const SizedBox(height: 8),
-                        AlarmItem(hour: 9, minute: 0, meridiemType: "AM"),
+                        AlarmItem(hour: 7, minute: 0, meridiemType: "am"),
+                        const SizedBox(height: 16),
+                        AlarmItem(hour: 8, minute: 0, meridiemType: "am"),
                       ],
                     ),
                   ),
@@ -59,16 +57,16 @@ class AlarmsPage extends StatelessWidget {
                       children: [
                         Text(
                           "Eventos familiares",
-                          style: textTheme.titleMedium?.copyWith(
-                            fontWeight: FontWeight.w700,
+                          style: textTheme.headlineSmall?.copyWith(
+                            color: colorScheme.onSurface,
                           ),
                         ),
+                        const SizedBox(height: 8),
+                        AlarmItem(hour: 6, minute: 30, meridiemType: "am"),
                         const SizedBox(height: 16),
-                        AlarmItem(hour: 6, minute: 30, meridiemType: "AM"),
-                        const SizedBox(height: 8),
-                        AlarmItem(hour: 7, minute: 30, meridiemType: "AM"),
-                        const SizedBox(height: 8),
-                        AlarmItem(hour: 8, minute: 30, meridiemType: "AM"),
+                        AlarmItem(hour: 7, minute: 30, meridiemType: "am"),
+                        const SizedBox(height: 16),
+                        AlarmItem(hour: 8, minute: 30, meridiemType: "am"),
                       ],
                     ),
                   ),
