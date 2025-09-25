@@ -53,21 +53,21 @@ class CategoryItem extends StatelessWidget {
                       onTap: () => {
                         showDialog(
                           context: context,
-                          builder: (_) => AlertDialog(
+                          builder: (dialogCtx) => AlertDialog(
                             title: const Text("Eliminar categoría"),
                             content: const Text(
-                              "Desea eliminar esta categoría?",
+                              "Desea eliminar 'categoría x'?",
                             ),
                             actions: [
                               TextButton(
                                 onPressed: () => {
-                                  // Navigator.pop(context)
+                                  Navigator.of(dialogCtx).pop(false)
                                 },
                                 child: const Text("Cancelar"),
                               ),
                               TextButton.icon(
-                                onPressed: () {
-                                  // Acción de eliminar
+                                onPressed: () => {
+                                  Navigator.of(dialogCtx).pop(false)
                                 },
                                 icon: const Icon(Icons.delete, size: 20),
                                 label: const Text("Eliminar"),
@@ -81,8 +81,8 @@ class CategoryItem extends StatelessWidget {
                       },
                       child: Icon(
                         Icons.delete,
-                        size: 16,
-                        color: colorScheme.onSurfaceVariant,
+                        size: 24,
+                        color: colorScheme.onSurface,
                       ),
                     ),
                     SizedBox(width: 4),
@@ -92,6 +92,13 @@ class CategoryItem extends StatelessWidget {
                         color: colorScheme.onSurfaceVariant,
                       ),
                     ),
+                    SizedBox(width: 4),
+                      Text(
+                        "• 23 min",
+                        style: textTheme.bodySmall?.copyWith(
+                          color: colorScheme.onSurfaceVariant,
+                        ),
+                      ),
                   ],
                 ),                
               ],

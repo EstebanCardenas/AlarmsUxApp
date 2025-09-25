@@ -68,7 +68,7 @@ class ReportsPage extends StatelessWidget {
                     children: [
                       Expanded(child: izquierda),
                       const SizedBox(width: 48),
-                      SizedBox(width: 420, child: derecha),
+                      SizedBox(width: 360, child: derecha),
                     ],
                   ),
                   ),
@@ -195,8 +195,9 @@ class _StatPill extends StatelessWidget {
         const SizedBox(height: 6),
         Text(
           label,
-          style: textTheme.bodySmall?.copyWith(
-            color: colorScheme.onSurfaceVariant,
+          style: textTheme.labelSmall?.copyWith(
+            color: colorScheme.onSurface,
+            fontWeight: FontWeight.w600,
           ),
         ),
       ],
@@ -277,8 +278,8 @@ class _MetricCard extends StatelessWidget {
           children: [
             // Bolita con número
             Container(
-              width: 44,
-              height: 44,
+              width: 40,
+              height: 40,
               decoration: BoxDecoration(
                 color: colorScheme.primary,
                 shape: BoxShape.circle,
@@ -288,7 +289,6 @@ class _MetricCard extends StatelessWidget {
                 '${data.count}',
                 style: textTheme.titleSmall?.copyWith(
                   color: colorScheme.onPrimary,
-                  fontWeight: FontWeight.w700,
                 ),
               ),
             ),
@@ -300,15 +300,15 @@ class _MetricCard extends StatelessWidget {
                 children: [
                   Text(
                     data.title,
-                    style: textTheme.titleMedium?.copyWith(
+                    style: textTheme.titleSmall?.copyWith(
                       color: colorScheme.onSurface,
-                      fontWeight: FontWeight.w700,
+                      fontWeight: FontWeight.w600,
                     ),
                   ),
                   const SizedBox(height: 4),
                   Text(
                     data.subtitle,
-                    style: textTheme.bodySmall?.copyWith(
+                    style: textTheme.bodyMedium?.copyWith(
                       color: colorScheme.onSurface,
                     ),
                   ),

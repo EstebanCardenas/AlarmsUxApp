@@ -74,21 +74,22 @@ class AlarmItem extends StatelessWidget {
                           onTap: () => {
                             showDialog(
                               context: context,
-                              builder: (_) => AlertDialog(
+                              barrierDismissible: true,
+                              builder: (dialogCtx) => AlertDialog(
                                 title: const Text("Eliminar alarma"),
                                 content: const Text(
-                                  "Desea eliminar esta alarma?",
+                                  "Desea eliminar 'alarma 2'?",
                                 ),
                                 actions: [
                                   TextButton(
                                     onPressed: () => {
-                                      // Navigator.pop(context)
+                                      Navigator.of(dialogCtx).pop(false)
                                     },
                                     child: const Text("Cancelar"),
                                   ),
                                   TextButton.icon(
-                                    onPressed: () {
-                                      // Acción de eliminar
+                                    onPressed: () => {
+                                      Navigator.of(dialogCtx).pop(false)
                                     },
                                     icon: const Icon(Icons.delete, size: 20),
                                     label: const Text("Eliminar"),
@@ -111,6 +112,13 @@ class AlarmItem extends StatelessWidget {
                       SizedBox(width: 4),
                       Text(
                         "Eliminar",
+                        style: textTheme.bodySmall?.copyWith(
+                          color: colorScheme.onSurfaceVariant,
+                        ),
+                      ),
+                      SizedBox(width: 4),
+                      Text(
+                        "• 23 min",
                         style: textTheme.bodySmall?.copyWith(
                           color: colorScheme.onSurfaceVariant,
                         ),
