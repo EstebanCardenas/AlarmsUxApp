@@ -10,6 +10,7 @@ final alarmsByCategory = <String, List<Alarm>>{
       label: "Mañana en 7h 30 min",
       days: {Day.L, Day.M, Day.X},
       isActivated: true,
+      timesSnoozed: 4,
     ),
     const Alarm(
       hour: 8,
@@ -18,6 +19,7 @@ final alarmsByCategory = <String, List<Alarm>>{
       label: "Mañana en 8h",
       days: {Day.X},
       isActivated: true,
+      timesSnoozed: 3,
     ),
   ],
   "Eventos Familiares": [
@@ -28,6 +30,7 @@ final alarmsByCategory = <String, List<Alarm>>{
       label: "En 3 días",
       days: {Day.V, Day.S},
       isActivated: true,
+      timesSnoozed: 1,
     ),
     const Alarm(
       hour: 4,
@@ -36,6 +39,7 @@ final alarmsByCategory = <String, List<Alarm>>{
       label: "En 4 días",
       days: {Day.S},
       isActivated: true,
+      timesSnoozed: 0,
     ),
     const Alarm(
       hour: 6,
@@ -44,6 +48,7 @@ final alarmsByCategory = <String, List<Alarm>>{
       label: "En 5 días",
       days: {Day.D},
       isActivated: true,
+      timesSnoozed: 3,
     ),
   ],
   "Pagos": [
@@ -54,6 +59,7 @@ final alarmsByCategory = <String, List<Alarm>>{
       label: "En 3 días",
       days: {Day.V, Day.S},
       isActivated: true,
+      timesSnoozed: 0,
     ),
     const Alarm(
       hour: 4,
@@ -62,6 +68,7 @@ final alarmsByCategory = <String, List<Alarm>>{
       label: "En 4 días",
       days: {Day.S},
       isActivated: true,
+      timesSnoozed: 0,
     ),
     const Alarm(
       hour: 6,
@@ -70,6 +77,7 @@ final alarmsByCategory = <String, List<Alarm>>{
       label: "En 5 días",
       days: {Day.D},
       isActivated: true,
+      timesSnoozed: 0,
     ),
   ],
 }.entries.toList();

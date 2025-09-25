@@ -1,17 +1,13 @@
-import 'package:alarms_android/components/alarm_list_item.dart';
 import 'package:alarms_android/components/alarms_app_bar.dart';
+import 'package:alarms_android/components/history_list_item.dart';
 import 'package:alarms_android/data.dart';
-import 'package:alarms_android/screens/create_alarm.dart';
-import 'package:alarms_android/screens/history.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:design_system/design_system.dart';
 
-class AlarmListPage extends StatelessWidget {
-  static const name = "alarm-list";
-  static const route = "/$name";
+class HistoryPage extends StatelessWidget {
+  static const name = "history";
 
-  const AlarmListPage({super.key});
+  const HistoryPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,23 +15,9 @@ class AlarmListPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AlarmsAppBar(
-        title: "Mis Alarmas",
+        title: "Historial",
         colorScheme: colorScheme,
         textTheme: textTheme,
-        actions: [
-          IconButton(
-            onPressed: () {
-              context.goNamed(HistoryPage.name);
-            },
-            icon: Icon(Icons.schedule, color: colorScheme.onSurface),
-          ),
-          IconButton(
-            onPressed: () {
-              context.goNamed(CreateAlarmPage.name);
-            },
-            icon: Icon(Icons.add_circle_outline, color: colorScheme.onSurface),
-          ),
-        ],
       ),
       backgroundColor: Colors.white,
       body: ListView.builder(
@@ -59,7 +41,7 @@ class AlarmListPage extends StatelessWidget {
               for (final alarm in alarms)
                 Padding(
                   padding: const EdgeInsets.only(bottom: 12),
-                  child: AlarmListItem(alarm),
+                  child: HistoryListItem(alarm),
                 ),
               const SizedBox(height: 16),
             ],

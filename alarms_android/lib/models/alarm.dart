@@ -9,6 +9,7 @@ class Alarm {
   final String label;
   final Set<Day> days;
   final bool isActivated;
+  final int timesSnoozed;
 
   const Alarm({
     required this.hour,
@@ -17,5 +18,6 @@ class Alarm {
     required this.label,
     required this.days,
     required this.isActivated,
+    required this.timesSnoozed,
   });
 }
