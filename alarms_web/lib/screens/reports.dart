@@ -72,7 +72,6 @@ class ReportsPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               AlarmsAppBar(title: "Reportes"),
-              const SizedBox(height: 24),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 48.0),
                 child: Row(

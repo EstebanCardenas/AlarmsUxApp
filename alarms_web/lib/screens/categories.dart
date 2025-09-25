@@ -1,4 +1,3 @@
-import 'package:alarms_web/components/alarm_item.dart';
 import 'package:alarms_web/components/app_bar.dart';
 import 'package:alarms_web/components/category_item.dart';
 import 'package:alarms_web/screens/create_category.dart';

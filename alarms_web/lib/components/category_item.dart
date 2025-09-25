@@ -49,40 +49,43 @@ class CategoryItem extends StatelessWidget {
                 ),
                 Row(
                   children: [
-                    GestureDetector(
-                      onTap: () => {
-                        showDialog(
-                          context: context,
-                          builder: (dialogCtx) => AlertDialog(
-                            title: const Text("Eliminar categoría"),
-                            content: const Text(
-                              "Desea eliminar 'categoría x'?",
-                            ),
-                            actions: [
-                              TextButton(
-                                onPressed: () => {
-                                  Navigator.of(dialogCtx).pop(false)
-                                },
-                                child: const Text("Cancelar"),
+                    MouseRegion(
+                      cursor: SystemMouseCursors.click,
+                      child: GestureDetector(
+                        onTap: () => {
+                          showDialog(
+                            context: context,
+                            builder: (dialogCtx) => AlertDialog(
+                              title: const Text("Eliminar categoría"),
+                              content: const Text(
+                                "Desea eliminar 'categoría x'?",
                               ),
-                              TextButton.icon(
-                                onPressed: () => {
-                                  Navigator.of(dialogCtx).pop(false)
-                                },
-                                icon: const Icon(Icons.delete, size: 20),
-                                label: const Text("Eliminar"),
-                                style: TextButton.styleFrom(
-                                  foregroundColor: colorScheme.primary, // color del texto/ícono
+                              actions: [
+                                TextButton(
+                                  onPressed: () => {
+                                    Navigator.of(dialogCtx).pop(false)
+                                  },
+                                  child: const Text("Cancelar"),
                                 ),
-                              ),
-                            ],
-                          ),
-                        )
-                      },
-                      child: Icon(
-                        Icons.delete,
-                        size: 24,
-                        color: colorScheme.onSurface,
+                                TextButton.icon(
+                                  onPressed: () => {
+                                    Navigator.of(dialogCtx).pop(false)
+                                  },
+                                  icon: const Icon(Icons.delete, size: 20),
+                                  label: const Text("Eliminar"),
+                                  style: TextButton.styleFrom(
+                                    foregroundColor: colorScheme.primary, // color del texto/ícono
+                                  ),
+                                ),
+                              ],
+                            ),
+                          )
+                        },
+                        child: Icon(
+                          Icons.delete,
+                          size: 24,
+                          color: colorScheme.onSurface,
+                        ),
                       ),
                     ),
                     SizedBox(width: 4),
