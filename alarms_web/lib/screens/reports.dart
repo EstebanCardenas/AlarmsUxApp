@@ -1,3 +1,4 @@
+import 'package:alarms_web/components/app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:design_system/design_system.dart';
 
@@ -39,8 +40,6 @@ class ReportsPage extends StatelessWidget {
       backgroundColor: Colors.white,
       body: LayoutBuilder(
         builder: (context, constraints) {
-          final wide = constraints.maxWidth >= 960;
-
           final izquierda = _LeftReportColumn(
             categorias: categorias,
             colorScheme: colorScheme,
@@ -57,38 +56,25 @@ class ReportsPage extends StatelessWidget {
             ],
           );
 
-          return Padding(
-            padding: const EdgeInsets.all(24),
-            child: Column(
+          return Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('Reportes',
-                    style: textTheme.headlineSmall?.copyWith(
-                      color: colorScheme.onBackground,
-                      fontWeight: FontWeight.w700,
-                    )),
+                AlarmsAppBar(title: "Reportes"),
                 const SizedBox(height: 24),
-                if (wide)
-                  Row(
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 48.0),
+                    child: Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Expanded(child: izquierda),
                       const SizedBox(width: 48),
                       SizedBox(width: 420, child: derecha),
                     ],
-                  )
-                else
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      izquierda,
-                      const SizedBox(height: 24),
-                      derecha,
-                    ],
                   ),
+                  ),
+                  
               ],
-            ),
-          );
+            );
         },
       ),
     );
@@ -148,9 +134,8 @@ class _CategoryRow extends StatelessWidget {
           width: 220,
           child: Text(
             title,
-            style: textTheme.titleMedium?.copyWith(
-              color: colorScheme.onBackground,
-              fontWeight: FontWeight.w600,
+            style: textTheme.titleLarge?.copyWith(
+              color: colorScheme.onSurface,
             ),
           ),
         ),
@@ -316,7 +301,7 @@ class _MetricCard extends StatelessWidget {
                   Text(
                     data.title,
                     style: textTheme.titleMedium?.copyWith(
-                      color: colorScheme.onSecondaryContainer,
+                      color: colorScheme.onSurface,
                       fontWeight: FontWeight.w700,
                     ),
                   ),
@@ -324,7 +309,7 @@ class _MetricCard extends StatelessWidget {
                   Text(
                     data.subtitle,
                     style: textTheme.bodySmall?.copyWith(
-                      color: colorScheme.onSecondaryContainer.withOpacity(0.9),
+                      color: colorScheme.onSurface,
                     ),
                   ),
                 ],

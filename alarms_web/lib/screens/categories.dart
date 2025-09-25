@@ -17,6 +17,7 @@ class CategoriesPage extends StatelessWidget {
     final (colorScheme, textTheme) = getColorSchemeAndTextTheme(context);
 
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
