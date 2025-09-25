@@ -31,7 +31,6 @@ class AlarmItem extends StatelessWidget {
           children: [
             SizedBox(
               width: 111,
-              height: 86,
               child: DecoratedBox(
                 decoration: BoxDecoration(
                   color: colorScheme.primaryContainer,
@@ -59,13 +58,14 @@ class AlarmItem extends StatelessWidget {
                       color: colorScheme.onSurface,
                     ),
                   ),
+                  const SizedBox(height: 4),
                   Text(
-                    "Description duis aute irure dolor in reprehenderit in voluptate velit.",
+                    "Description duis aute irure dolor in reprehenderit in",
                     style: textTheme.bodyMedium?.copyWith(
                       color: colorScheme.onSurfaceVariant,
                     ),
                   ),
-                  const SizedBox(height: 10),
+                  const SizedBox(height: 8),
                   Row(
                     children: [
                       MouseRegion(
@@ -98,7 +98,7 @@ class AlarmItem extends StatelessWidget {
                             )
                           },
                           child: Icon(
-                            Icons.delete_outline,
+                            Icons.delete,
                             size: 24,
                             color: colorScheme.onSurface,
                           ),
@@ -120,32 +120,5 @@ class AlarmItem extends StatelessWidget {
         ),
       ],
     );
-
-    /*
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        DecoratedBox(
-          decoration: BoxDecoration(
-            color: colorScheme.primaryContainer,
-            borderRadius: BorderRadius.all(Radius.circular(6)),
-          ),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 18),
-            child: Text(
-              formattedHour,
-              style: textTheme.bodyMedium?.copyWith(color: colorScheme.onPrimaryContainer),
-            ),
-          ),
-        ),
-        SizedBox(height: 8),
-        Text(
-          "Lun, Mar, Mié",
-          style: textTheme.bodySmall?.copyWith(color: colorScheme.onSurfaceVariant),
-        ),
-      ],
-    );
-
-    */
   }
 }

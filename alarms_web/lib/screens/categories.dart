@@ -17,7 +17,6 @@ class CategoriesPage extends StatelessWidget {
     final (colorScheme, textTheme) = getColorSchemeAndTextTheme(context);
 
     return Scaffold(
-      backgroundColor: Colors.white,
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -33,7 +32,7 @@ class CategoriesPage extends StatelessWidget {
           ),
           Expanded(
             child: Padding(
-              padding: const EdgeInsets.all(24),
+              padding: const EdgeInsets.symmetric(vertical: 24.0, horizontal: 48.0),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -42,27 +41,25 @@ class CategoriesPage extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        CategoryItem( hour: 6, minute: 0, meridiemType: "AM", title: "Categoria 1"),
+                        CategoryItem( hour: 6, minute: 0, meridiemType: "AM", title: "Las más frecuentes"),
                         const SizedBox(height: 18),
-                        CategoryItem(hour: 7, minute: 0, meridiemType: "AM", title: "Categoria 2"),
+                        CategoryItem(hour: 7, minute: 0, meridiemType: "AM", title: "Eventos familiares"),
                         const SizedBox(height: 18),
-                        CategoryItem(hour: 8, minute: 0, meridiemType: "AM", title: "Categoria 3"),
-                        const SizedBox(height: 18),
-                        CategoryItem(hour: 9, minute: 0, meridiemType: "AM", title: "Categoria 4"),
+                        CategoryItem(hour: 8, minute: 0, meridiemType: "AM", title: "Pagos"),
                       ],
                     ),
                   ),
-                  const SizedBox(width: 40),
+                  const SizedBox(width: 2),
                   // Columna: Eventos familiares
                   Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        CategoryItem(hour: 6, minute: 30, meridiemType: "AM", title: "Categoria 5"),
+                        CategoryItem(hour: 6, minute: 30, meridiemType: "AM", title: "Otra categoria 1"),
                         const SizedBox(height: 18),
-                        CategoryItem(hour: 7, minute: 30, meridiemType: "AM", title: "Categoria 6"),
+                        CategoryItem(hour: 7, minute: 30, meridiemType: "AM", title: "Otra categoria 2"),
                         const SizedBox(height: 18),
-                        CategoryItem(hour: 8, minute: 30, meridiemType: "AM", title: "Categoria 7"),
+                        CategoryItem(hour: 8, minute: 30, meridiemType: "AM", title: "Otra categoria 3"),
                       ],
                     ),
                   ),

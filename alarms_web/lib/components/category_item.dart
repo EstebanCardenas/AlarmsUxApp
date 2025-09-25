@@ -36,14 +36,14 @@ class CategoryItem extends StatelessWidget {
               children: [
                 Text(
                   title,
-                  style: textTheme.bodyLarge?.copyWith(
+                  style: textTheme.titleLarge?.copyWith(
                     color: colorScheme.onSurfaceVariant,
                     fontWeight: FontWeight.w500,
                   ),
                 ),
                 Text(
-                  "Lorem ipsum dolor sit amet",
-                  style: textTheme.bodySmall?.copyWith(
+                  "Description duis aute irure dolor in reprehenderit in voluptate velit.",
+                  style: textTheme.bodyMedium?.copyWith(
                     color: colorScheme.onSurfaceVariant,
                   ),
                 ),
