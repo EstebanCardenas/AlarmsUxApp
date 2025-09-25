@@ -75,9 +75,9 @@ class AlarmItem extends StatelessWidget {
                             showDialog(
                               context: context,
                               builder: (_) => AlertDialog(
-                                title: const Text("Confirmar acción"),
+                                title: const Text("Eliminar alarma"),
                                 content: const Text(
-                                  "Esta acción no se puede deshacer. ¿Desea continuar?",
+                                  "Desea eliminar esta alarma?",
                                 ),
                                 actions: [
                                   TextButton(
@@ -86,16 +86,20 @@ class AlarmItem extends StatelessWidget {
                                     },
                                     child: const Text("Cancelar"),
                                   ),
-                                  ElevatedButton(
+                                  TextButton.icon(
                                     onPressed: () {
-                                      // Acción de confirmación
-                                      //Navigator.pop(context);
+                                      // Acción de eliminar
                                     },
-                                    child: const Text("Sí, continuar"),
+                                    icon: const Icon(Icons.delete, size: 20),
+                                    label: const Text("Eliminar"),
+                                    style: TextButton.styleFrom(
+                                      foregroundColor: colorScheme
+                                          .primary, // color del texto/ícono
+                                    ),
                                   ),
                                 ],
                               ),
-                            )
+                            ),
                           },
                           child: Icon(
                             Icons.delete,
