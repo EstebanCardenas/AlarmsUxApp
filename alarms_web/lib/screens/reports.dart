@@ -50,31 +50,42 @@ class ReportsPage extends StatelessWidget {
             colorScheme: colorScheme,
             textTheme: textTheme,
             cards: const [
-              _MetricCardData(count: 13, title: 'Activas', subtitle: 'Cantidad de alarmas creadas'),
-              _MetricCardData(count: 13, title: 'Postpuestas', subtitle: 'Cantidad de alarmas postpuestas'),
-              _MetricCardData(count: 13, title: 'Completas', subtitle: 'Cantidad de alarmas completadas'),
+              _MetricCardData(
+                count: 13,
+                title: 'Activas',
+                subtitle: 'Cantidad de alarmas creadas',
+              ),
+              _MetricCardData(
+                count: 13,
+                title: 'Postpuestas',
+                subtitle: 'Cantidad de alarmas postpuestas',
+              ),
+              _MetricCardData(
+                count: 13,
+                title: 'Completas',
+                subtitle: 'Cantidad de alarmas completadas',
+              ),
             ],
           );
 
           return Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                AlarmsAppBar(title: "Reportes"),
-                const SizedBox(height: 24),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 48.0),
-                    child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Expanded(child: izquierda),
-                      const SizedBox(width: 48),
-                      SizedBox(width: 360, child: derecha),
-                    ],
-                  ),
-                  ),
-                  
-              ],
-            );
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              AlarmsAppBar(title: "Reportes"),
+              const SizedBox(height: 24),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 48.0),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Expanded(child: izquierda),
+                    const SizedBox(width: 48),
+                    SizedBox(width: 360, child: derecha),
+                  ],
+                ),
+              ),
+            ],
+          );
         },
       ),
     );
@@ -96,18 +107,30 @@ class _LeftReportColumn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    final column = Column(
       children: categorias.entries
           .map((e) => Padding(
-                padding: const EdgeInsets.only(bottom: 20),
-                child: _CategoryRow(
-                  title: e.key,
-                  stats: e.value,
-                  colorScheme: colorScheme,
-                  textTheme: textTheme,
-                ),
-              ))
+              padding: const EdgeInsets.only(bottom: 20),
+              child: _CategoryRow(
+                title: e.key,
+                stats: e.value,
+                colorScheme: colorScheme,
+                textTheme: textTheme,
+              ),
+            ),
+          )
           .toList(),
+    );
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(top: 7.0),
+        ),
+        const SizedBox(height: 0),
+        column,
+      ],
     );
   }
 }
@@ -129,27 +152,26 @@ class _CategoryRow extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        // Título de la fila
         SizedBox(
-          width: 220,
+          width: 240,
           child: Text(
             title,
-            style: textTheme.titleLarge?.copyWith(
-              color: colorScheme.onSurface,
-            ),
+            style: textTheme.titleLarge?.copyWith(color: colorScheme.onSurface),
           ),
         ),
         // Pastillas de conteo
         Wrap(
-          spacing: 28,
+          spacing: 15,
           runSpacing: 16,
           children: stats
-              .map((s) => _StatPill(
-                    label: s.label,
-                    count: s.count,
-                    colorScheme: colorScheme,
-                    textTheme: textTheme,
-                  ))
+              .map(
+                (s) => _StatPill(
+                  label: s.label,
+                  count: s.count,
+                  colorScheme: colorScheme,
+                  textTheme: textTheme,
+                ),
+              )
               .toList(),
         ),
       ],
@@ -228,14 +250,16 @@ class _RightCardsColumn extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: cards
-          .map((c) => Padding(
-                padding: const EdgeInsets.only(bottom: 16),
-                child: _MetricCard(
-                  data: c,
-                  colorScheme: colorScheme,
-                  textTheme: textTheme,
-                ),
-              ))
+          .map(
+            (c) => Padding(
+              padding: const EdgeInsets.only(bottom: 16),
+              child: _MetricCard(
+                data: c,
+                colorScheme: colorScheme,
+                textTheme: textTheme,
+              ),
+            ),
+          )
           .toList(),
     );
   }
